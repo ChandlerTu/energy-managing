@@ -35,6 +35,8 @@ public class MysqlDataSourceFactory {
 		String password = properties.getProperty("password");
 		String url = "jdbc:mysql://" + host + ":" + port + "/" + database;
 		dataSource = new PooledDataSource(driver, url, username, password);
+		// dataSource.setPoolPingEnabled(true);
+		// dataSource.setPoolPingQuery("SELECT 1");
 	}
 
 	public static DataSource getMysqlDataSource() {

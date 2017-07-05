@@ -32,8 +32,9 @@ public class EnergyManagingMain {
 					Date startTime = energyManaging.getStartTime();
 					Date now = new Date();
 					long minutes = (now.getTime() - startTime.getTime()) / 1000 / 60;
+					logger.info(String.valueOf(minutes));
 					if (minutes >= 25 && minutes % 5 == 0) {
-						logger.info(String.valueOf(minutes));
+						logger.info("send mail");
 						sendMail();
 					}
 				}
