@@ -5,20 +5,12 @@
 	<formats>
 		<format>zip</format>
 	</formats>
-	<files>
-		<file>
+	<fileSets>
+		<fileSet>
 			<outputDirectory>bin</outputDirectory>
-			<source>target/classes/startup.sh</source>
-		</file>
-		<file>
-			<outputDirectory>bin</outputDirectory>
-			<source>target/classes/shutdown.sh</source>
-		</file>
-		<file>
-			<outputDirectory>bin</outputDirectory>
-			<source>target/classes/startup.bat</source>
-		</file>
-	</files>
+			<directory>bin</directory>
+		</fileSet>
+	</fileSets>
 	<dependencySets>
 		<dependencySet>
 			<outputDirectory>lib</outputDirectory>
