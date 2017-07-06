@@ -12,6 +12,10 @@
 		</file>
 		<file>
 			<outputDirectory>bin</outputDirectory>
+			<source>target/classes/shutdown.sh</source>
+		</file>
+		<file>
+			<outputDirectory>bin</outputDirectory>
 			<source>target/classes/startup.bat</source>
 		</file>
 	</files>

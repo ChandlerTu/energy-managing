@@ -1,1 +1,1 @@
-java -cp ../lib/* com.chandlertu.energy.managing.EnergyManagingMain &
+java -cp ../lib/*: com.chandlertu.energy.managing.EnergyManagingMain &

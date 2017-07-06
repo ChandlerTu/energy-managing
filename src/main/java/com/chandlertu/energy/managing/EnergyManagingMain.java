@@ -29,13 +29,14 @@ public class EnergyManagingMain {
 				EnergyManaging energyManaging = mapper.selectEnergyManagingWhereEndtimeIsNull();
 
 				if (energyManaging != null) {
-					Date startTime = energyManaging.getStartTime();
 					Date now = new Date();
+					Date startTime = energyManaging.getStartTime();
 					long minutes = (now.getTime() - startTime.getTime()) / 1000 / 60;
-					logger.info(String.valueOf(minutes));
+					String subject = minutes + " ·ÖÖÓ";
+					logger.info(subject);
 					if (minutes >= 25 && minutes % 5 == 0) {
 						logger.info("send mail");
-						sendMail();
+						sendMail(subject);
 					}
 				}
 			}
@@ -48,7 +49,7 @@ public class EnergyManagingMain {
 		}
 	}
 
-	public static void sendMail() {
+	public static void sendMail(String subject) {
 		Properties props = new Properties();
 		Path path = Paths.get(System.getProperty("user.home"), PROPERTY_FILES, "mail.properties");
 		try (InputStreamReader inStream = new InputStreamReader(new FileInputStream(path.toFile()), "utf-8")) {
@@ -61,7 +62,6 @@ public class EnergyManagingMain {
 		String password = props.getProperty("password");
 		String smtp = props.getProperty("smtp");
 		String to = props.getProperty("to");
-		String subject = props.getProperty("subject");
 		String text = props.getProperty("text");
 		String ssl = props.getProperty("ssl", "false");
 		MailSender sender = new MailSender(account, password, smtp);
